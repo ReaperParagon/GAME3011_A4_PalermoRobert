@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MatchThreeEvents
+public class HackingEvents
 {
     /// Timer Done ///
 
@@ -26,18 +26,6 @@ public class MatchThreeEvents
         MiniGameStart?.Invoke(difficultyLevel);
     }
 
-    /// Board Setup ///
-
-    public delegate void OnBoardSetup();
-
-    public static event OnBoardSetup BoardSetup;
-
-    public static void InvokeOnBoardSetup()
-    {
-        BoardSetup?.Invoke();
-    }
-
-
     /// Minigame Complete ///
 
     public delegate void OnMiniGameComplete();
@@ -49,25 +37,25 @@ public class MatchThreeEvents
         MiniGameComplete?.Invoke();
     }
 
-    /// Add Score ///
+    /// Connection Event ///
 
-    public delegate void OnAddScore(int score);
+    public delegate void OnConnectionEvent();
 
-    public static event OnAddScore AddScore;
+    public static event OnConnectionEvent OnConnection;
 
-    public static void InvokeOnAddScore(int score)
+    public static void InvokeOnConnection()
     {
-        AddScore?.Invoke(score);
+        OnConnection?.Invoke();
     }
 
-    /// Bomb Triggered ///
+    /// Hacking Aborted Event ///
 
-    public delegate void OnBomb();
+    public delegate void OnAbortHackEvent();
 
-    public static event OnBomb BombTriggered;
+    public static event OnAbortHackEvent OnAbortHack;
 
-    public static void InvokeOnBomb()
+    public static void InvokeOnAbortHack()
     {
-        BombTriggered?.Invoke();
+        OnAbortHack?.Invoke();
     }
 }

@@ -7,8 +7,7 @@ public enum DifficultyLevel
 {
     Easy    = 0,
     Medium  = 1,
-    Hard    = 2,
-    Chaos   = 8
+    Hard    = 2
 }
 
 public class TimerScript : MonoBehaviour
@@ -28,26 +27,25 @@ public class TimerScript : MonoBehaviour
 
     private void OnEnable()
     {
-        MatchThreeEvents.MiniGameStart += SetupTimer;
-        MatchThreeEvents.BoardSetup += StartTimer;
-        MatchThreeEvents.MiniGameComplete += StopTimer;
+        HackingEvents.MiniGameStart += SetupTimer;
+        HackingEvents.MiniGameComplete += StopTimer;
+        HackingEvents.OnAbortHack += StopTimer;
     }
 
     private void OnDisable()
     {
-        MatchThreeEvents.MiniGameStart -= SetupTimer;
-        MatchThreeEvents.BoardSetup -= StartTimer;
-        MatchThreeEvents.MiniGameComplete -= StopTimer;
+        HackingEvents.MiniGameStart -= SetupTimer;
+        HackingEvents.MiniGameComplete -= StopTimer;
+        HackingEvents.OnAbortHack -= StopTimer;
     }
 
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        if (!timerEnabled)
-            return;
+        if (!timerEnabled) return;
 
-        timeRemaining -= Time.fixedDeltaTime;
+        timeRemaining -= Time.deltaTime;
         CheckTimerEnd();
         UpdateTimerText();
     }
@@ -60,6 +58,8 @@ public class TimerScript : MonoBehaviour
 
         timeRemaining = 20.0f * Mathf.FloorToInt(timerCurve.Evaluate((int)currentDifficulty));
         UpdateTimerText();
+
+        StartTimer();
     }
     
     public void StartTimer()
@@ -77,7 +77,7 @@ public class TimerScript : MonoBehaviour
         if (timeRemaining <= 0.0f)
         {
             timeRemaining = 0.0f;
-            MatchThreeEvents.InvokeOnTimerDone();
+            HackingEvents.InvokeOnTimerDone();
             timerEnabled = false;
         }
     }
@@ -91,8 +91,9 @@ public class TimerScript : MonoBehaviour
     {
         int minutes = Mathf.FloorToInt(timeRemaining / 60.0f);
         int seconds = Mathf.FloorToInt(timeRemaining % 60.0f);
+        int microSeconds = Mathf.FloorToInt((timeRemaining - Mathf.FloorToInt(timeRemaining)) * 1000.0f);
 
-        return minutes.ToString("00") + ":" + seconds.ToString("00");
+        return minutes.ToString("00") + ":" + seconds.ToString("00") + ":" + microSeconds.ToString("000");
     }
 
 }

@@ -32,7 +32,7 @@ public class ToggleScreenButton
     private void ShowGameObjects(bool show)
     {
         UnityEvent events = show ? showEvents : hideEvents;
-        events.Invoke();
+        events?.Invoke();
 
         foreach (GameObject go in showGameObjects)
         {

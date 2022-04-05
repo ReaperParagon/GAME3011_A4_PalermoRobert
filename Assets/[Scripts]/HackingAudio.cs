@@ -4,10 +4,10 @@ using UnityEngine;
 
 public enum AudioClipList
 {
-    Match, Bomb, Swap
+    Connect
 }
 
-public class MatchThreeAudio : MonoBehaviour
+public class HackingAudio : MonoBehaviour
 {
     [Header("Sound Effects")]
     public List<AudioClip> clips = new List<AudioClip>();
@@ -34,27 +34,20 @@ public class MatchThreeAudio : MonoBehaviour
 
     private void OnEnable()
     {
-        MatchThreeEvents.AddScore += PlayMatchAudio;
-        MatchThreeEvents.BombTriggered += PlayBombAudio;
+        HackingEvents.OnConnection += PlayConnectionAudio;
     }
 
     private void OnDisable()
     {
-        MatchThreeEvents.AddScore -= PlayMatchAudio;
-        MatchThreeEvents.BombTriggered -= PlayBombAudio;
+        HackingEvents.OnConnection -= PlayConnectionAudio;
     }
 
 
     /// Functions ///
 
-    private void PlayMatchAudio(int _)
+    private void PlayConnectionAudio()
     {
-        PlayAudio(AudioClipList.Match);
-    }
-
-    private void PlayBombAudio()
-    {
-        PlayAudio(AudioClipList.Bomb);
+        PlayAudio(AudioClipList.Connect);
     }
 
     private void PlayAudio(AudioClipList clip)
