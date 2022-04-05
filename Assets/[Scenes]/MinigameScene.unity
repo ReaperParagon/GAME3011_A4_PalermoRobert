@@ -1584,6 +1584,7 @@ MonoBehaviour:
   - {x: 6, y: 4}
   - {x: 7, y: 5}
   - {x: 8, y: 6}
+  tilePrefabList: {fileID: 11400000, guid: 1fbe4edad22564749bb63a80540ef2f9, type: 2}
   boardObject: {fileID: 1801559927}
   TilePrefab: {fileID: 7237453030489502420, guid: 0765dd84e94dd304e8c52eb2fea690a0, type: 3}
 --- !u!1 &963194225

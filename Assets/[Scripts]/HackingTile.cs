@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public enum CloseTilePositions
 {
-    Left, Right, Top, Bottom
+    Left, Top, Right, Bottom
 }
 
 public class HackingTile : MonoBehaviour
@@ -14,6 +14,7 @@ public class HackingTile : MonoBehaviour
     public static HackingBoard board;
 
     public Image icon;
+    public TileInfo tileInfo;
 
     public GameObject Tile { get; set; }
     public Vector2Int GridPosition { get; set; }
@@ -28,15 +29,18 @@ public class HackingTile : MonoBehaviour
         if (board == null) board = FindObjectOfType<HackingBoard>();
     }
 
-    public void Init(GameObject _tile, Vector2Int _pos)
+    public void Init(GameObject _tile, Vector2Int _pos, TileInfo _info)
     {
         Tile = _tile;
         GridPosition = _pos;
 
         if (icon == null) icon = GetComponent<Image>();
+
+        tileInfo = new TileInfo();
+        SetTileInfo(_info);
     }
 
-    private bool CheckIsClose(HackingTile tile)
+    protected bool CheckIsClose(HackingTile tile)
     {
         foreach (HackingTile t in CloseTiles)
             if (tile == t) return true;
@@ -49,7 +53,53 @@ public class HackingTile : MonoBehaviour
         return CloseTiles[(int)pos];
     }
 
-    /// Input System ///
+    private void SwapTiles(HackingTile thisTile, HackingTile thatTile)
+    {
+        TileInfo info = new TileInfo();
+        info.SetInfo(thatTile.tileInfo);
 
+        thatTile.SetTileInfo(thisTile.tileInfo);
+        thisTile.SetTileInfo(info);
+    }
 
+    private void SetTileInfo(TileInfo info)
+    {
+        tileInfo.SetInfo(info);
+
+        // Setup for tile
+        transform.localRotation = Quaternion.Euler(0.0f, 0.0f, tileInfo.rotation);
+        icon.sprite = tileInfo.icon;
+    }
+
+    /// Inputs ///
+
+    public void Rotate()
+    {
+        // Rotate Tile
+        tileInfo.RotateConnections();
+
+        transform.localRotation = Quaternion.Euler(0.0f, 0.0f, tileInfo.rotation);
+    }
+
+    public void OnStartDrag()
+    {
+        currentTile = this;
+    }
+
+    public void OnRelease()
+    {
+        // If we are allowed input
+        if (!HackingBoard.allowInput) return;
+
+        // If we have a current tile and there is something in both
+        if (currentTile == this || currentTile == null) return;
+        if (tileInfo == null || currentTile.tileInfo == null) return;
+
+        SwapTiles(this, currentTile);
+    }
+
+    public void OnHover()
+    {
+        
+    }
 }

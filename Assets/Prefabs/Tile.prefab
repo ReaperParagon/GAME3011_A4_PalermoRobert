@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 99e358b5bfa0c7246888915a3563dc63, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -111,8 +111,8 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -167,14 +167,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 88420121000670453}
-  Item:
-    itemSprite: {fileID: 0}
-    itemTint: {r: 0, g: 0, b: 0, a: 0}
-    itemColor: 0
-    itemType: 0
   CloseTiles: []
   wasVisited: 0
-  animationWaitTime: 0.1
 --- !u!114 &8687725536781985444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,8 +187,8 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 7706466256939921840}
-          m_TargetAssemblyTypeName: MatchThreeTile, Assembly-CSharp
-          m_MethodName: OnDrag
+          m_TargetAssemblyTypeName: HackingTile, Assembly-CSharp
+          m_MethodName: OnStartDrag
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -211,6 +205,22 @@ MonoBehaviour:
         - m_Target: {fileID: 7706466256939921840}
           m_TargetAssemblyTypeName: MatchThreeTile, Assembly-CSharp
           m_MethodName: OnRelease
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7706466256939921840}
+          m_TargetAssemblyTypeName: HackingTile, Assembly-CSharp
+          m_MethodName: OnStartDrag
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
