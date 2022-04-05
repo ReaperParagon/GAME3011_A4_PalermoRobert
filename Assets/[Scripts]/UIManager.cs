@@ -20,6 +20,7 @@ public class ToggleScreenButton
         foreach (Button button in buttons)
         {
             button.onClick.AddListener(ToggleGameObjects);
+            button.onClick.AddListener(UIEvents.InvokeOnButtonClick);
         }
     }
 
@@ -57,6 +58,21 @@ public class UIManager : MonoBehaviour
         {
             button.SetupButtons();
         }
+    }
+
+}
+
+public class UIEvents
+{
+    /// Button Click ///
+
+    public delegate void OnButtonClickEvent();
+
+    public static event OnButtonClickEvent OnButtonClick;
+
+    public static void InvokeOnButtonClick()
+    {
+        OnButtonClick?.Invoke();
     }
 
 }

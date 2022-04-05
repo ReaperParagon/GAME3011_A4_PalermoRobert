@@ -17,13 +17,13 @@ public class HackingEvents
 
     /// Minigame Start ///
 
-    public delegate void OnMiniGameStart(DifficultyLevel difficultyLevel);
+    public delegate void OnMiniGameStart(DifficultyLevel difficultyLevel, PlayerSkill playerSkill);
 
     public static event OnMiniGameStart MiniGameStart;
 
-    public static void InvokeOnMiniGameStart(DifficultyLevel difficultyLevel)
+    public static void InvokeOnMiniGameStart(DifficultyLevel difficultyLevel, PlayerSkill playerSkill)
     {
-        MiniGameStart?.Invoke(difficultyLevel);
+        MiniGameStart?.Invoke(difficultyLevel, playerSkill);
     }
 
     /// Minigame Complete ///

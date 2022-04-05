@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum AudioClipList
 {
-    Connect
+    Click
 }
 
 public class HackingAudio : MonoBehaviour
@@ -35,11 +35,13 @@ public class HackingAudio : MonoBehaviour
     private void OnEnable()
     {
         HackingEvents.OnConnection += PlayConnectionAudio;
+        UIEvents.OnButtonClick += PlayConnectionAudio;
     }
 
     private void OnDisable()
     {
         HackingEvents.OnConnection -= PlayConnectionAudio;
+        UIEvents.OnButtonClick -= PlayConnectionAudio;
     }
 
 
@@ -47,7 +49,7 @@ public class HackingAudio : MonoBehaviour
 
     private void PlayConnectionAudio()
     {
-        PlayAudio(AudioClipList.Connect);
+        PlayAudio(AudioClipList.Click);
     }
 
     private void PlayAudio(AudioClipList clip)

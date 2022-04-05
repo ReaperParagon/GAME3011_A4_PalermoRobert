@@ -20,6 +20,8 @@ public class TimerScript : MonoBehaviour
 
     [SerializeField]
     public AnimationCurve timerCurve;
+    [SerializeField]
+    public AnimationCurve skillCurve;
 
     // Timer variables
     public float timeRemaining { get; private set; }
@@ -52,11 +54,11 @@ public class TimerScript : MonoBehaviour
 
     /// Functions ///
 
-    public void SetupTimer(DifficultyLevel difficultyLevel)
+    public void SetupTimer(DifficultyLevel difficultyLevel, PlayerSkill playerSkill)
     {
         currentDifficulty = difficultyLevel;
 
-        timeRemaining = 20.0f * Mathf.FloorToInt(timerCurve.Evaluate((int)currentDifficulty));
+        timeRemaining = timerCurve.Evaluate((int)currentDifficulty) * skillCurve.Evaluate(Mathf.Clamp(playerSkill.HackingLevel, 0, 100));
         UpdateTimerText();
 
         StartTimer();

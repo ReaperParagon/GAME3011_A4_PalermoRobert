@@ -69,7 +69,7 @@ public class HackingBoard : MonoBehaviour
         }
     }
 
-    public void Setup(DifficultyLevel difficulty)
+    public void Setup(DifficultyLevel difficulty, PlayerSkill playerSkill)
     {
         currentDifficulty = difficulty;
         GridDimensions = GridSizes[(int)difficulty];

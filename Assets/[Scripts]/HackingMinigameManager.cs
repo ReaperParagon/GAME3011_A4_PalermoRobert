@@ -9,6 +9,8 @@ public class HackingMinigameManager : MonoBehaviour
     public GameObject resultsScreen;
     public TextMeshProUGUI resultsText;
     public TextMeshProUGUI message;
+    public PlayerSkill playerSkill;
+
 
     private void OnEnable()
     {
@@ -28,12 +30,12 @@ public class HackingMinigameManager : MonoBehaviour
 
     public void StartMinigame(DifficultyLevel difficulty)
     {
-        HackingEvents.InvokeOnMiniGameStart(difficulty);
+        HackingEvents.InvokeOnMiniGameStart(difficulty, playerSkill);
     }
 
     public void StartMinigame(int difficulty)
     {
-        HackingEvents.InvokeOnMiniGameStart((DifficultyLevel)difficulty);
+        HackingEvents.InvokeOnMiniGameStart((DifficultyLevel)difficulty, playerSkill);
     }
 
     private void GameComplete()
@@ -58,7 +60,7 @@ public class HackingMinigameManager : MonoBehaviour
         resultsScreen.SetActive(true);
     }
 
-    private void Setup(DifficultyLevel _)
+    private void Setup(DifficultyLevel _, PlayerSkill ps)
     {
         resultsScreen.SetActive(false);
     }
