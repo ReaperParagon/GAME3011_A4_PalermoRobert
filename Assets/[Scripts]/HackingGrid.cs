@@ -25,11 +25,18 @@ public class HackingGrid : MonoBehaviour
     protected void OnEnable()
     {
         HackingEvents.MiniGameStart += Setup;
+        HackingEvents.OnMinigameEnd += DisableInput;
     }
 
     protected void OnDisable()
     {
         HackingEvents.MiniGameStart -= Setup;
+        HackingEvents.OnMinigameEnd -= DisableInput;
+    }
+
+    private void DisableInput()
+    {
+        allowInput = false;
     }
 
     protected List<HackingTile> GetCloseTiles(Vector2Int gridPosition)
@@ -70,7 +77,7 @@ public class HackingGrid : MonoBehaviour
         }
     }
 
-    protected void Setup(DifficultyLevel difficulty, PlayerSkill playerSkill)
+    protected virtual void Setup(DifficultyLevel difficulty, PlayerSkill playerSkill)
     {
         currentDifficulty = difficulty;
         GridDimensions = GridSizes[(int)difficulty];

@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class HackingEvents
 {
+    /// Minigame End ///
+
+    public delegate void OnMinigameEndEvent();
+
+    public static event OnMinigameEndEvent OnMinigameEnd;
+
+
     /// Timer Done ///
 
     public delegate void OnTimerDone();
@@ -13,6 +20,7 @@ public class HackingEvents
     public static void InvokeOnTimerDone()
     {
         TimerFinished?.Invoke();
+        OnMinigameEnd?.Invoke();
     }
 
     /// Minigame Start ///
@@ -35,6 +43,7 @@ public class HackingEvents
     public static void InvokeOnMiniGameComplete()
     {
         MiniGameComplete?.Invoke();
+        OnMinigameEnd?.Invoke();
     }
 
     /// Connection Event ///
@@ -57,5 +66,6 @@ public class HackingEvents
     public static void InvokeOnAbortHack()
     {
         OnAbortHack?.Invoke();
+        OnMinigameEnd?.Invoke();
     }
 }

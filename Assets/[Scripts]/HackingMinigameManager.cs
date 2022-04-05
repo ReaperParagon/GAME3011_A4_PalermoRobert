@@ -75,6 +75,8 @@ public class HackingMinigameManager : MonoBehaviour
 
     private void OnAbort(InputValue value)
     {
+        if (!HackingBoard.allowInput) return;
+
         HackingEvents.InvokeOnAbortHack();
     }
 }

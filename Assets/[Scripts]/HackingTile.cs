@@ -8,6 +8,18 @@ public enum CloseTilePositions
     Left, Top, Right, Bottom
 }
 
+public class TilePositionsHelper
+{
+    public static CloseTilePositions GetOppositePosition(CloseTilePositions pos)
+    {
+        int i = (int)pos + 2;
+
+        if (i > 3) i -= 4;
+
+        return (CloseTilePositions)i;
+    }
+}
+
 public class HackingTile : MonoBehaviour
 {
     public static HackingTile currentTile;
@@ -22,6 +34,7 @@ public class HackingTile : MonoBehaviour
     public List<HackingTile> CloseTiles = new List<HackingTile>();
 
     public bool wasVisited = false;
+    public bool isPowered = false;
 
     private void Awake()
     {
@@ -71,8 +84,6 @@ public class HackingTile : MonoBehaviour
         icon.sprite = tileInfo.icon;
     }
 
-    /// Inputs ///
-
     public void Rotate()
     {
         // Rotate Tile
@@ -81,6 +92,35 @@ public class HackingTile : MonoBehaviour
         transform.localRotation = Quaternion.Euler(0.0f, 0.0f, tileInfo.rotation);
     }
 
+    public void PowerTile(bool power)
+    {
+        if (wasVisited) return;
+
+        wasVisited = true;
+        isPowered = power;
+
+        if (isPowered) board.AddPoweredTile(this);
+
+        // Change Colour of this tile
+        icon.color = isPowered ? Color.cyan : Color.white;
+
+        if (!power) return;
+
+        // Power connected tiles
+        foreach (CloseTilePositions pos in tileInfo.connectedPositions)
+        {
+            // if the close tile has the opposite direction connected, then power it
+            HackingTile tile = CloseTiles[(int)pos];
+
+            if (tile == null) continue;
+
+            if (tile.tileInfo.connectedPositions.Contains(TilePositionsHelper.GetOppositePosition(pos)))
+                tile.PowerTile(power);
+        }
+    }
+
+    /// Inputs ///
+    
     public void OnStartDrag()
     {
         currentTile = this;
