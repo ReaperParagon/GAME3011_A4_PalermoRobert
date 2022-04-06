@@ -63,6 +63,9 @@ public class HackingBoard : HackingGrid
 
         HackingTile lastTile = GetTileAtPosition(GridDimensions.x - 1, outputY);
         AttachTiles(lastTile, outputTile, CloseTilePositions.Right);
+
+        inputTile.ResetTile();
+        outputTile.ResetTile();
     }
 
     private void AttachTiles(HackingTile thisTile, HackingTile thatTile, CloseTilePositions dir)

@@ -683,7 +683,7 @@ RectTransform:
   - {fileID: 232936414}
   - {fileID: 1068329115}
   m_Father: {fileID: 798492236}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1410,10 +1410,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1801559928}
+  - {fileID: 864758253}
   - {fileID: 1954921311}
   - {fileID: 547668707}
   - {fileID: 1408830133}
-  - {fileID: 864758253}
   m_Father: {fileID: 1081349242}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1452,7 +1452,7 @@ RectTransform:
   - {fileID: 1410359316}
   - {fileID: 263953318}
   m_Father: {fileID: 798492236}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1737,8 +1737,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GridSizes:
   - {x: 6, y: 4}
-  - {x: 7, y: 5}
-  - {x: 8, y: 6}
+  - {x: 8, y: 5}
+  - {x: 10, y: 6}
   tilePrefabList: {fileID: 11400000, guid: 1fbe4edad22564749bb63a80540ef2f9, type: 2}
   boardObject: {fileID: 1801559927}
   TilePrefab: {fileID: 7237453030489502420, guid: 0765dd84e94dd304e8c52eb2fea690a0, type: 3}
@@ -2665,7 +2665,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 798492236}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3680,7 +3680,7 @@ RectTransform:
   m_Children:
   - {fileID: 2064224678}
   m_Father: {fileID: 798492236}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}

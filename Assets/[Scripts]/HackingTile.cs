@@ -92,6 +92,13 @@ public class HackingTile : MonoBehaviour
         transform.localRotation = Quaternion.Euler(0.0f, 0.0f, tileInfo.rotation);
     }
 
+    public void ResetTile()
+    {
+        isPowered = false;
+        wasVisited = false;
+        icon.color = Color.white;
+    }
+
     public void PowerTile(bool power)
     {
         if (wasVisited) return;
