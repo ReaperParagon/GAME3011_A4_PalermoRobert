@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4c40217998c277b4da7e961e0b00b937, type: 3}
-  m_Name: DefaultTileList
+  m_Name: HardTileList
   m_EditorClassIdentifier: 
   Tiles:
   - {fileID: 11400000, guid: ff274e358c176ad4a90780148e3e38db, type: 2}
@@ -19,3 +19,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7501ecd6117d2aa4786a15760f795ed6, type: 2}
   - {fileID: 11400000, guid: 07258d58ae1551841a14a1a2c7b27f00, type: 2}
   - {fileID: 11400000, guid: 0f6b5b4090db24941ae479a241f1db48, type: 2}
+  TileWeights:
+  - 4
+  - 1.5
+  - 0.1
+  - 1.5
+  - 0.5
+  - 0.2

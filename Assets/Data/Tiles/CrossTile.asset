@@ -16,3 +16,4 @@ MonoBehaviour:
     icon: {fileID: 21300000, guid: c16329e3f36189b4788f5612d94d1d5c, type: 3}
     rotation: 0
     connectedPositions: 00000000010000000200000003000000
+  weight: 0.1

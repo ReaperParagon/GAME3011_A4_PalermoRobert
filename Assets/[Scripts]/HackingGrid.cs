@@ -12,7 +12,15 @@ public class HackingGrid : MonoBehaviour
     protected List<List<HackingTile>> GridTiles = new List<List<HackingTile>>();
 
     [Header("Grid Tile Information")]
-    public HackingTileList tilePrefabList;
+    public List<HackingTileList> tileLists = new List<HackingTileList>();
+    private HackingTileList currentTileList
+    {
+        get
+        {
+            return tileLists[(int)currentDifficulty];
+        }
+    }
+
     public GameObject boardObject;
     [SerializeField]
     protected GameObject TilePrefab;
@@ -101,7 +109,7 @@ public class HackingGrid : MonoBehaviour
 
             HackingTile matchTile = tile.GetComponent<HackingTile>();
 
-            matchTile.Init(tile, new Vector2Int(gridX, gridY), tilePrefabList.GetRandomItem());
+            matchTile.Init(tile, new Vector2Int(gridX, gridY), currentTileList.GetWeightedItem());
 
             // Check our Grid size
             if (gridX > GridTiles.Count - 1)

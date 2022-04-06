@@ -51,6 +51,13 @@ public class HackingTile : MonoBehaviour
 
         tileInfo = new TileInfo();
         SetTileInfo(_info);
+
+        int numRotations = Random.Range(0, 4);
+
+        for (int i = 0; i < numRotations; i++)
+        {
+            Rotate();
+        }
     }
 
     protected bool CheckIsClose(HackingTile tile)

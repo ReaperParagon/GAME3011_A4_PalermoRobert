@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c40217998c277b4da7e961e0b00b937, type: 3}
+  m_Name: MediumTileList
+  m_EditorClassIdentifier: 
+  Tiles:
+  - {fileID: 11400000, guid: ff274e358c176ad4a90780148e3e38db, type: 2}
+  - {fileID: 11400000, guid: 27212e719c0cb27488c47a49b39e6edf, type: 2}
+  - {fileID: 11400000, guid: 0fb1776ec8500bd4a99e95b820c3f983, type: 2}
+  - {fileID: 11400000, guid: 7501ecd6117d2aa4786a15760f795ed6, type: 2}
+  - {fileID: 11400000, guid: 07258d58ae1551841a14a1a2c7b27f00, type: 2}
+  - {fileID: 11400000, guid: 0f6b5b4090db24941ae479a241f1db48, type: 2}
+  TileWeights:
+  - 3
+  - 1.5
+  - 0.1
+  - 1.5
+  - 0.5
+  - 0.25
