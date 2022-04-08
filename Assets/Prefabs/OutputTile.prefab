@@ -22,10 +22,22 @@ PrefabInstance:
     - target: {fileID: 88420121000670453, guid: 0765dd84e94dd304e8c52eb2fea690a0, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: d718c01af95b7634987a0efb4c2f97ec, type: 3}
+      objectReference: {fileID: 21300000, guid: 99e358b5bfa0c7246888915a3563dc63, type: 3}
+    - target: {fileID: 6555268500415124639, guid: 0765dd84e94dd304e8c52eb2fea690a0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555268500415124639, guid: 0765dd84e94dd304e8c52eb2fea690a0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555268500415124639, guid: 0765dd84e94dd304e8c52eb2fea690a0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90
+      objectReference: {fileID: 0}
     - target: {fileID: 7237453030489502419, guid: 0765dd84e94dd304e8c52eb2fea690a0, type: 3}
       propertyPath: m_Pivot.x
-      value: 0.5
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7237453030489502419, guid: 0765dd84e94dd304e8c52eb2fea690a0, type: 3}
       propertyPath: m_Pivot.y

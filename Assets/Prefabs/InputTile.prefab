@@ -10,10 +10,10 @@ PrefabInstance:
     - target: {fileID: 88420121000670453, guid: 0765dd84e94dd304e8c52eb2fea690a0, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: ec5914f7683b76c44ad9cce0eefbc97d, type: 3}
+      objectReference: {fileID: 21300000, guid: 57db124b2bee20f479407854d48276bf, type: 3}
     - target: {fileID: 7237453030489502419, guid: 0765dd84e94dd304e8c52eb2fea690a0, type: 3}
       propertyPath: m_Pivot.x
-      value: 0.5
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7237453030489502419, guid: 0765dd84e94dd304e8c52eb2fea690a0, type: 3}
       propertyPath: m_Pivot.y
